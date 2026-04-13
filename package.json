@@ -29,5 +29,9 @@
     "@rstest/core": "^0.9.6",
     "@types/node": "^24.12.2",
     "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "inversify": "^8.1.0",
+    "reflect-metadata": "^0.2.2"
   }
 }
