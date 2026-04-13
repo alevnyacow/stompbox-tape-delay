@@ -1,7 +1,16 @@
 import { expect, test } from '@rstest/core';
-import { squared } from '../src/index';
+import { TapeDelay } from '../src/index';
 
-test('squared', () => {
-  expect(squared(2)).toBe(4);
-  expect(squared(12)).toBe(144);
+class A {
+  sup = () => 'sup'
+}
+
+const a = new TapeDelay({
+  A
+})
+
+test('happy path', () => {
+  const aInstance = a.instance('A')
+  const f = aInstance.sup()
+  expect(f).toBe('sup')
 });

@@ -1,6 +1,6 @@
 {
   "name": "@stompbox/tape-delay",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "exports": {
     ".": {
@@ -31,7 +31,9 @@
     "typescript": "^6.0.2"
   },
   "dependencies": {
-    "inversify": "^8.1.0",
+    "inversify": "^8.1.0"
+  },
+  "peerDependencies": {
     "reflect-metadata": "^0.2.2"
   }
 }
