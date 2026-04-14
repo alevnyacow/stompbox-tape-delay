@@ -6,6 +6,7 @@
     "type": "git",
     "url": "https://github.com/alevnyacow/stompbox-tape-delay.git"
   },
+  "keywords": ["DI", "dependency injection", "inversify"],
   "type": "module",
   "exports": {
     ".": {
