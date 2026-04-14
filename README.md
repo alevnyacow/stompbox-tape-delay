@@ -58,3 +58,30 @@ const randomEnvDetector: EnvironmentDetector = () => {
 
 const container = new TapeDelay({}, randomEnvDetector)
 ```
+
+## Scopes
+
+Scopes can be customized for every entry. There are four options - `Singleton`, `Transient` (default), `Request`, `ConstantValue`. 
+
+```ts
+import { TapeDelay, injectable, Scopes } from '@stompbox/tape-delay'
+
+@injectable()
+class A { }
+
+@injectable()
+class B { }
+
+const container = new TapeDelay({
+    A: [
+        // singleton scope in test
+        Scopes.Singleton(A),
+        // transient scope in development
+        Scopes.Transient(new A()),
+        // request scope on production
+        Scopes.Request(A)
+    ],
+    // constant value for all environments
+    B: Scopes.ConstantValue(new B())
+})
+```

@@ -22,7 +22,7 @@ const Transient = <T>(EntryClass: ClassEntry<T>): EntryDescription<T> => [EntryC
 const Request = <T>(EntryClass: ClassEntry<T>): EntryDescription<T> => [EntryClass, x => x.inRequestScope()] as const
 const ConstantValue = <T>(value: T): ConstantValueEntry<T> => ({ constantValue: value })
 
-export const Lifespans = { Singleton, Transient, Request, ConstantValue }
+export const Scope = { Singleton, Transient, Request, ConstantValue }
 
 export class TapeDelay<T extends Entries> {
     private readonly key = Math.random().toString()
