@@ -1,5 +1,5 @@
 import { expect, test } from '@rstest/core';
-import { TapeDelay, injectable } from '../src/index';
+import { TapeDelay, injectable, inject } from '../src/index';
 
 @injectable()
 class A { hello = () => 'hello' }

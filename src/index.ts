@@ -1,5 +1,6 @@
 import { BindInWhenOnFluentSyntax, Container } from "inversify";
-export { inject, injectable } from 'inversify'
+import { inject as rawInject } from 'inversify'
+export { injectable } from 'inversify'
 
 type Environment = 'test' | 'development' | 'production'
 
@@ -87,3 +88,7 @@ export class TapeDelay<T extends Entries> {
     } 
 }
 
+
+type Keys<T> = T extends TapeDelay<infer GG> ? keyof GG : never
+
+export const inject = <ContainerType>(f: Keys<ContainerType>) => rawInject(f)
