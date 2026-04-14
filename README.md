@@ -14,24 +14,16 @@ Plug-and-play DI based on Inversify.
 import { TapeDelay, injectable } from '@stompbox/tape-delay'
 
 @injectable()
-class A { 
-    sayHello = () => { console.log('hello') }
-}
+class A { hello = () => 'hello' }
 
 @injectable()
-class TestB {
-    method = () => { console.log('Hello from test') }
-}
+class TestB { method = () => 'test' }
 
 @injectable()
-class DevB {
-    method = () => { console.log('Hello from dev') }
-}
+class DevB { method = () => 'dev' }
 
 @injectable()
-class ProdB {
-    method = () => { console.log('Hello from prod') }
-}
+class ProdB { method = () => 'prod' }
 
 const container = new TapeDelay({
     // one implementation for all environments
@@ -42,7 +34,7 @@ const container = new TapeDelay({
 
 // all types and keys are infered automatically
 const aInstance = container.instance('A')
-aInstance.sayHello()
+console.log(aInstance.hello())
 const bInstance = container.instance('B')
-bInstance.method()
+console.log(bInstance.method())
 ```
