@@ -1,12 +1,16 @@
 {
   "name": "@stompbox/tape-delay",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Plug-and-play DI based on Inversify",
   "repository": {
     "type": "git",
     "url": "https://github.com/alevnyacow/stompbox-tape-delay.git"
   },
-  "keywords": ["DI", "dependency injection", "inversify"],
+  "keywords": [
+    "DI",
+    "dependency injection",
+    "inversify"
+  ],
   "type": "module",
   "exports": {
     ".": {
