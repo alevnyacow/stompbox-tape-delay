@@ -77,7 +77,7 @@ const container = new TapeDelay({
         // singleton scope in test
         Scopes.Singleton(A),
         // transient scope in development
-        Scopes.Transient(new A()),
+        Scopes.Transient(A),
         // request scope on production
         Scopes.Request(A)
     ],
