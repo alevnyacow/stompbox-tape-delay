@@ -19,8 +19,9 @@ type EntryType<T> = T extends Entry<infer G> ? PublicFields<G> : never
 const Singleton = <T>(EntryClass: ClassEntry<T>): EntryDescription<T> => [EntryClass, x => x.inSingletonScope()] as const
 const Transient = <T>(EntryClass: ClassEntry<T>): EntryDescription<T> => [EntryClass, x => x.inTransientScope()] as const
 const Request = <T>(EntryClass: ClassEntry<T>): EntryDescription<T> => [EntryClass, x => x.inRequestScope()] as const
+const ConstantValue = <T>(value: T): ConstantValueEntry<T> => ({ constantValue: value })
 
-export const Lifespans = { Singleton, Transient, Request }
+export const Lifespans = { Singleton, Transient, Request, ConstantValue }
 
 export class TapeDelay<T extends Entries> {
     private readonly key = Math.random().toString()
