@@ -1,9 +1,7 @@
-import 'reflect-metadata'
 import { BindInWhenOnFluentSyntax, Container } from "inversify";
-import { inject, injectable } from 'inversify'
+export { inject, injectable } from 'inversify'
 
 type Environment = 'test' | 'development' | 'production'
-
 
 type ClassEntry<T> = new (...args: any[]) => T
 type ConstantValueEntry<T> = { constantValue: T }
@@ -80,14 +78,10 @@ export class TapeDelay<T extends Entries> {
         return container
     }
 
-    registered = (f: keyof T) => inject(f.toString())
-
     instance = <E extends keyof T>(entryName: E) => {
-        
         const environment = this.getEnvironment ? this.getEnvironment() : process.env.NODE_ENV as Environment
         const container = this.container(environment)
         return container.get<EntryType<T[E]>>(entryName.toString())
     } 
 }
 
-export const register = injectable
