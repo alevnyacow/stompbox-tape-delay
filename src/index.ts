@@ -13,6 +13,7 @@ type EntryDescription<T> = ClassEntry<T> | ConstantValueEntry<T> | [ClassEntry<T
 type Entry<T> = [EntryDescription<T>, EntryDescription<T>, EntryDescription<T>] | EntryDescription<T>
 
 export type Entries = Record<string, Entry<unknown>>
+export type EnvironmentDetector = () => Environment
 
 type EntryType<T> = T extends Entry<infer G> ? PublicFields<G> : never 
 
@@ -26,7 +27,7 @@ export const Lifespans = { Singleton, Transient, Request, ConstantValue }
 export class TapeDelay<T extends Entries> {
     private readonly key = Math.random().toString()
 
-    constructor(private readonly entries: T, private readonly getEnvironment?: () => Environment) {}
+    constructor(private readonly entries: T, private readonly getEnvironment?: EnvironmentDetector) {}
 
     private container = (environment: Environment) =>{
         const globalContainer = globalThis as any

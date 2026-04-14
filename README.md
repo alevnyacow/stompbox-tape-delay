@@ -38,3 +38,23 @@ console.log(aInstance.hello())
 const bInstance = container.instance('B')
 console.log(bInstance.method())
 ```
+
+## Environment detection
+
+Environment variable `process.env.NODE_ENV` is used by default. This behaviour can be redefined with optional second parameter in `TapeDelay` constructor. 
+
+```ts
+import { TapeDelay, EnvironmentDetector } from '@stompbox/tape-delay'
+
+const randomEnvDetector: EnvironmentDetector = () => {
+    if (Math.random() > 0.5) {
+        return 'test'
+    }
+    if (Math.random() > 0.5) {
+        return 'development'
+    }
+    return 'production'
+}
+
+const container = new TapeDelay({}, randomEnvDetector)
+```
