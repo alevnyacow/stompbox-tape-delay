@@ -1,6 +1,6 @@
 {
   "name": "@stompbox/tape-delay",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Plug-and-play DI based on Inversify",
   "repository": {
     "type": "git",
