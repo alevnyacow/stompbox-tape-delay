@@ -11,6 +11,5 @@ const a = new TapeDelay({
 
 test('happy path', () => {
   const aInstance = a.instance('A')
-  const f = aInstance.sup()
-  expect(f).toBe('sup')
+  expect(aInstance.sup()).toBe('sup')
 });
