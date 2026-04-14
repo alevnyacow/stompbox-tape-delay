@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.4...v1.0.5) (2026-04-14)
+
+
+### Bug Fixes
+
+* added inject test ([6e4fea2](https://github.com/alevnyacow/stompbox-tape-delay/commit/6e4fea2679f8b91aca70d826119de0f9698dd29f))
+
 ## [1.0.4](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.3...v1.0.4) (2026-04-14)
 
 
