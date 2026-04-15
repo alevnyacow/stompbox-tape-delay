@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.6...v1.0.7) (2026-04-15)
+
+
+### Bug Fixes
+
+* readme ([cc1a237](https://github.com/alevnyacow/stompbox-tape-delay/commit/cc1a2375caeaafd9909070d49ebde77a511e2196))
+
 ## [1.0.6](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.5...v1.0.6) (2026-04-14)
 
 
