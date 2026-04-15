@@ -2,6 +2,9 @@ import { BindInWhenOnFluentSyntax, Container } from "inversify";
 import { inject as rawInject } from 'inversify'
 export { injectable } from 'inversify'
 
+/**
+ * Current active application environment.
+ */
 type Environment = 'test' | 'development' | 'production'
 
 type ClassEntry<T> = new (...args: any[]) => T
