@@ -25,6 +25,19 @@ const ConstantValue = <T>(value: T): ConstantValueEntry<T> => ({ constantValue: 
 
 export const Scope = { Singleton, Transient, Request, ConstantValue }
 
+/**
+ * Tape Delay container.
+ * 
+ * @example
+ * ```ts
+ * import { TapeDelay, injectable } from '@stompbox/tape-delay'
+ * 
+ * @injectable()
+ * class A {}
+ * 
+ * const container = new TapeDelay({ A })
+ * ```
+ */
 export class TapeDelay<T extends Entries> {
     private readonly key = Math.random().toString()
 
