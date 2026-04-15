@@ -26,22 +26,48 @@ const ConstantValue = <T>(value: T): ConstantValueEntry<T> => ({ constantValue: 
 export const Scope = { Singleton, Transient, Request, ConstantValue }
 
 /**
- * Tape Delay container.
+ * Tape Delay container. Takes entries and optional environment detector in the constructor.
  * 
  * @example
  * ```ts
- * import { TapeDelay, injectable } from '@stompbox/tape-delay'
+ * import { TapeDelay } from '@stompbox/tape-delay'
+ * import { UserService } from '@/services/user.service'
  * 
- * @injectable()
- * class A {}
+ * export const container = new TapeDelay({ UserService })
  * 
- * const container = new TapeDelay({ A })
+ * const userService = container.instance('UserService')
  * ```
  */
 export class TapeDelay<T extends Entries> {
     private readonly key = Math.random().toString()
 
-    constructor(private readonly entries: T, private readonly getEnvironment?: EnvironmentDetector) {}
+    constructor(
+        /**
+         * Entries describing DI container.
+         * 
+         * @example
+         * ```ts
+         * import { Singleton } from '@stompbox/tape-delay'
+         * import { UserService } from '@/services/user.service'
+         * import { UsersInMemory, UsersInPrisma } from '@/stores/user' 
+         * 
+         * const entries = {
+         *     // One implementation for all environments
+         *     UserService,
+         *     UserStore: [
+         *         // Implementation for test environment
+         *         Singleton(UsersInMemory), 
+         *         // Implementation for development environment
+         *         UsersInPrisma,
+         *         // Implementation for production environment
+         *         UsersInPrisma
+         *     ]
+         * }
+         * ```
+         */
+        private readonly entries: T, 
+        private readonly getEnvironment?: EnvironmentDetector
+    ) {}
 
     private container = (environment: Environment) =>{
         const globalContainer = globalThis as any
