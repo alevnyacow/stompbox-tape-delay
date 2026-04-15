@@ -191,6 +191,6 @@ export class TapeDelay<T extends Entries> {
 }
 
 
-type Keys<T> = T extends TapeDelay<infer GG> ? keyof GG : never
+type Keys<T> = T extends TapeDelay<infer ContainerEntries> ? keyof ContainerEntries : never
 
 export const inject = <ContainerType>(entryKey: Keys<ContainerType>) => rawInject(entryKey)
