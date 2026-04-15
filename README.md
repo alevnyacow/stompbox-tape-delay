@@ -1,6 +1,6 @@
 # @stompbox/tape-delay
 
-Plug-and-play DI based on Inversify.
+Plug-and-play Dependency Injection container based on Inversify.
 
 ## Setup
 
