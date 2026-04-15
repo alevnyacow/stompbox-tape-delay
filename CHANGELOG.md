@@ -1,3 +1,10 @@
+## [1.0.13](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.12...v1.0.13) (2026-04-15)
+
+
+### Bug Fixes
+
+* refactoring generic name in `Keys` type ([872fa54](https://github.com/alevnyacow/stompbox-tape-delay/commit/872fa541427593b7ddb387bc8f19edf744e77ca0))
+
 ## [1.0.12](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.11...v1.0.12) (2026-04-15)
 
 
