@@ -1,4 +1,4 @@
-# @stompbox/tape-delay
+# Tape Delay
 
 Plug-and-play Dependency Injection container based on Inversify.
 
