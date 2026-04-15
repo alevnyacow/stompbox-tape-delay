@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.8...v1.0.9) (2026-04-15)
+
+
+### Bug Fixes
+
+* added tsdoc for `TapeDelay` class ([d858ef0](https://github.com/alevnyacow/stompbox-tape-delay/commit/d858ef07c8b301f8081e7c8612c77d9a03049a5a))
+
 ## [1.0.8](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.7...v1.0.8) (2026-04-15)
 
 
