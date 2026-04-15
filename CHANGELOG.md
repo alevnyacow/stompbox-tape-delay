@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.10...v1.0.11) (2026-04-15)
+
+
+### Bug Fixes
+
+* added tsdoc for EnvironmentDetector ([76135b1](https://github.com/alevnyacow/stompbox-tape-delay/commit/76135b11614a99c5b462395a01230c92ba8260e4))
+
 ## [1.0.10](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.9...v1.0.10) (2026-04-15)
 
 
