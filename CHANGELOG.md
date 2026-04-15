@@ -1,3 +1,10 @@
+## [1.0.12](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.11...v1.0.12) (2026-04-15)
+
+
+### Bug Fixes
+
+* added tsdoc for lifetime scopes ([e3bbb7d](https://github.com/alevnyacow/stompbox-tape-delay/commit/e3bbb7dabd5b17a5b0bea77dbbc258e8bb40c49d))
+
 ## [1.0.11](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.10...v1.0.11) (2026-04-15)
 
 
