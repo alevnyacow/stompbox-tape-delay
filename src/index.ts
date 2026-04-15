@@ -23,7 +23,58 @@ const Transient = <T>(EntryClass: ClassEntry<T>): EntryDescription<T> => [EntryC
 const Request = <T>(EntryClass: ClassEntry<T>): EntryDescription<T> => [EntryClass, x => x.inRequestScope()] as const
 const ConstantValue = <T>(value: T): ConstantValueEntry<T> => ({ constantValue: value })
 
-export const Scope = { Singleton, Transient, Request, ConstantValue }
+/**
+ * Lifetime scopes.
+ */
+export const Scope = { 
+    /**
+     * Singleton scope.
+     * 
+     * @example
+     * ```ts
+     * import { Scope } from '@stompbox/tape-delay'
+     * 
+     * const entries = { A: Scope.Singleton(A) }
+     * ```
+     */ 
+    Singleton, 
+    /**
+     * Transient scope (used by default).
+     * 
+     * @example
+     * ```ts
+     * import { Scope } from '@stompbox/tape-delay'
+     * 
+     * const entries = { A: Scope.Transient(A) }
+     * ```
+     */
+    Transient, 
+    /**
+     * Request scope.
+     * 
+     * @example
+     * ```ts
+     * import { Scope } from '@stompbox/tape-delay'
+     * 
+     * const entries = { A: Scope.Request(A) }
+     * ```
+     */
+    Request, 
+    /**
+     * Constant value scope.
+     * 
+     * @example
+     * ```ts
+     * import { Scope } from '@stompbox/tape-delay'
+     * 
+     * const instance = new A()
+     * 
+     * const entries = { A: Scope.ConstantValue(instance) }
+     * ```
+     */
+    ConstantValue 
+}
+
 
 /**
  * Tape Delay container. Takes entries and optional environment detector in the constructor.
