@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.7...v1.0.8) (2026-04-15)
+
+
+### Bug Fixes
+
+* added license in package.json ([34eb930](https://github.com/alevnyacow/stompbox-tape-delay/commit/34eb93043df539aaf0b253b5a11a822062fe2439))
+
 ## [1.0.7](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.6...v1.0.7) (2026-04-15)
 
 
