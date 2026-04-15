@@ -65,8 +65,20 @@ export class TapeDelay<T extends Entries> {
          * }
          * ```
          */
-        private readonly entries: T, 
-        private readonly getEnvironment?: EnvironmentDetector
+        private readonly entries: T,
+        /**
+         * Optional environment detector. `process.env.NODE_ENV` is used by default.
+         * 
+         * @example
+         * ```ts
+         * const randomEnvDetector: EnvironmentDetector = () => {
+         *     if (Math.random() > 0.5) { return 'test' }
+         *     if (Math.random() > 0.5) { return 'development' }
+         *     return 'production'
+         * }
+         * ```
+         */
+        private readonly environmentDetector?: EnvironmentDetector
     ) {}
 
     private container = (environment: Environment) =>{
@@ -121,7 +133,7 @@ export class TapeDelay<T extends Entries> {
     }
 
     instance = <E extends keyof T>(entryName: E) => {
-        const environment = this.getEnvironment ? this.getEnvironment() : process.env.NODE_ENV as Environment
+        const environment = this.environmentDetector ? this.environmentDetector() : process.env.NODE_ENV as Environment
         const container = this.container(environment)
         return container.get<EntryType<T[E]>>(entryName.toString())
     } 
