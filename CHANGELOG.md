@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.15...v1.1.0) (2026-04-17)
+
+
+### Features
+
+* added limiter TapeDelayError ([4c15375](https://github.com/alevnyacow/stompbox-tape-delay/commit/4c15375ebe6b8d12d953a49f980bd4576e6f5760))
+
 ## [1.0.15](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.14...v1.0.15) (2026-04-15)
 
 
