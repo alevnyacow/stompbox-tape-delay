@@ -1,6 +1,11 @@
 import { BindInWhenOnFluentSyntax, Container } from "inversify";
+import { Limiter } from '@stompbox/limiter'
 import { inject as rawInject } from 'inversify'
 export { injectable } from 'inversify'
+
+export class TapeDelayError extends Limiter({
+    NOT_REGISTERED_ENTRY: 'TAPE_DELAY-NOT_REGISTERED_ENTITY'
+}) {}
 
 /**
  * Current active application environment.
@@ -189,7 +194,11 @@ export class TapeDelay<T extends Entries> {
     instance = <E extends keyof T>(entryName: E) => {
         const environment = this.environmentDetector ? this.environmentDetector() : process.env.NODE_ENV as Environment
         const container = this.container(environment)
-        return container.get<EntryType<T[E]>>(entryName.toString())
+        const entryNameAsString = entryName.toString()
+        if (!Object.keys(this.entries).includes(entryNameAsString)) {
+            throw new TapeDelayError('NOT_REGISTERED_ENTRY', { entryName: entryNameAsString })
+        }
+        return container.get<EntryType<T[E]>>(entryNameAsString)
     } 
 }
 

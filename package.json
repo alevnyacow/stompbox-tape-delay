@@ -2,7 +2,7 @@
   "name": "@stompbox/tape-delay",
   "version": "1.0.15",
   "license": "MIT",
-  "description": "Plug-and-play DI based on Inversify",
+  "description": "Framework-agnostic plug-and-play Dependency Injection container.",
   "repository": {
     "type": "git",
     "url": "https://github.com/alevnyacow/stompbox-tape-delay.git"
@@ -46,6 +46,7 @@
     "typescript": "^6.0.2"
   },
   "dependencies": {
+    "@stompbox/limiter": "^4.2.2",
     "inversify": "^8.1.0"
   },
   "peerDependencies": {

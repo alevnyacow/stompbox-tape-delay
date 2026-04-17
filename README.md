@@ -1,6 +1,6 @@
 # Tape Delay
 
-Plug-and-play Dependency Injection container based on Inversify.
+Framework-agnostic plug-and-play Dependency Injection container based on Inversify.
 
 ## Setup
 
