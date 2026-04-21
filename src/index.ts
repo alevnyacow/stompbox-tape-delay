@@ -24,7 +24,7 @@ type Entry<T> = [EntryDescription<T>, EntryDescription<T>, EntryDescription<T>] 
 export type Entries = Record<string, Entry<unknown>>
 export type EnvironmentDetector = () => Environment
 
-type EntryType<T> = T extends Entry<infer G> ? PublicFields<G> : never 
+export type EntryType<T> = T extends Entry<infer G> ? PublicFields<G> : never 
 
 const Singleton = <T>(EntryClass: ClassEntry<T>): EntryDescription<T> => [EntryClass, x => x.inSingletonScope()] as const
 const Transient = <T>(EntryClass: ClassEntry<T>): EntryDescription<T> => [EntryClass, x => x.inTransientScope()] as const
