@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.1.0...v1.2.0) (2026-04-21)
+
+
+### Features
+
+* exported entry type ([5aa7a4e](https://github.com/alevnyacow/stompbox-tape-delay/commit/5aa7a4e991d3fb028157ad20e9c8df1859d5653d))
+
 # [1.1.0](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.0.15...v1.1.0) (2026-04-17)
 
 
