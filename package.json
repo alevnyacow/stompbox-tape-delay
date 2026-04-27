@@ -1,6 +1,6 @@
 {
   "name": "@stompbox/tape-delay",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "license": "MIT",
   "description": "Framework-agnostic plug-and-play Dependency Injection container.",
   "repository": {
