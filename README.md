@@ -2,12 +2,6 @@
 
 Framework-agnostic Dependency Injection container based on Inversify.
 
-## Setup
-
-1. Install `@stompbox/tape-delay` and `reflect-metadata`
-2. Import `reflect-metadata` in entrypoint of your application
-3. Enable decorators in your tsconfig.json
-
 ## Usage example
 
 ```ts
@@ -80,6 +74,8 @@ const container = newContainer({
 ```
 
 ## Using in classes + partial resolving
+
+> Make sure you enabled decorators in `tsconfig.json` if you want to use Tape Delay to inject fields in constructor.
 
 ```ts
 import { newContainer, injectField, Instance } from '@stompbox/tape-delay'
