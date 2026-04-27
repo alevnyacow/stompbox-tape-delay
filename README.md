@@ -28,7 +28,7 @@ const container = newContainer({
 })
 
 // all types and keys are infered automatically
-const { a, b } = container.getCtx()
+const { a, b } = container.resolve()
 
 console.log(a.hello())
 console.log(b.method())
@@ -56,7 +56,7 @@ const container = newContainer(randomEnvDetector, {
     testDep: { less: Less, more: More }
 })
 
-const { testDep } = container.getCtx()
+const { testDep } = container.resolve()
 console.log(testDep.method()) // randomly 'less' or 'more'
 ```
 
@@ -79,7 +79,7 @@ const container = newContainer({
 })
 ```
 
-## Using in classes
+## Using in classes + partial resolving
 
 ```ts
 import { newContainer, injectField, Instance } from '@stompbox/tape-delay'
@@ -109,6 +109,9 @@ const container = newContainer({
 
 type Container = typeof container
 
-const { b } = container.getCtx()
+// partial resolve, only `B` entry is resolved
+const { b } = container.partialResolve('B')
 console.log(b.aMethod())
 ```
+
+## Partial resolving

@@ -69,26 +69,19 @@ export class TapeDelay<Env extends string, T extends Entries<Env>, P extends Tap
         return result
     }
 
-    getCtx(): {[key in keyof T as Uncapitalize<key & string>]: EntryContract<TapeDelay<Env, T, P>, key & string>}
-    getCtx<Keys extends (keyof T)[]>(...data: Keys): () => {[key in Keys[number] as Uncapitalize<key & string>]: EntryContract<TapeDelay<Env, T, P>, key & string>}
-
-    getCtx(keys: Array<any> | void): any {
+    resolve = (): {[key in keyof T as Uncapitalize<key & string>]: EntryContract<TapeDelay<Env, T, P>, key & string>} => {
         const allKeys = Object.keys(this.entries)
         let ctx = {}
         for (const currentKey of allKeys) {
-            if (keys && !keys.includes(currentKey)) {
-                continue
-            }
             // @ts-ignore
             ctx[uncapitalize(currentKey)] = this.instance(currentKey)
         }
-        return keys ? () => ctx : ctx
+
+        // @ts-ignore
+        return ctx
     }
     
-    getFullCtx(): {[key in EntryKeys<TapeDelay<Env, T, P>>]: EntryContract<TapeDelay<Env, T, P>, key & string>}
-    getFullCtx<Keys extends EntryKeys<TapeDelay<Env, T, P>>[]>(...keys: Keys): () => {[key in Keys[number]]: EntryContract<TapeDelay<Env, T, P>, key & string>}
-
-    getFullCtx(keys: any[] | void): any {
+    resolvePartial = <Keys extends EntryKeys<TapeDelay<Env, T, P>>[]>(...keys: Keys) => (): {[key in Keys[number] as Uncapitalize<key & string>]: EntryContract<TapeDelay<Env, T, P>, key & string>} => {
         let currentLevel = this
         let currentKeys = Object.keys(currentLevel.container)
         let parent = this.parent
@@ -107,7 +100,32 @@ export class TapeDelay<Env extends string, T extends Entries<Env>, P extends Tap
             ctx[uncapitalize(key)] = this.instance(key)
         }
         
-        return keys ? () => ctx : ctx
+        // @ts-ignore
+        return ctx
+
+    }
+
+    resolveWithParents = (): {[key in EntryKeys<TapeDelay<Env, T, P>> as Uncapitalize<key & string>]: EntryContract<TapeDelay<Env, T, P>, key & string>} => {
+        let currentLevel = this
+        let currentKeys = Object.keys(currentLevel.container)
+        let parent = this.parent
+        let ctx = {}
+
+        while (parent) {
+            currentKeys = [...currentKeys, ...Object.keys(parent.container)]
+            parent = parent.parent
+        }
+        
+        for (const key of currentKeys) {
+            // if (keys && !keys.includes(key)) {
+            //     continue
+            // }
+            // @ts-ignore
+            ctx[uncapitalize(key)] = this.instance(key)
+        }
+        
+        // @ts-ignore
+        return ctx
     }
 }
 

@@ -29,8 +29,8 @@ const container = newContainer({
 type Container = typeof container
 
 test('happy path', () => {
-  const ctx = container.getCtx()
-  expect(ctx.a.hello()).toBe('hello')
-  expect(ctx.b.method()).toBe('test')
-  expect(ctx.withInject.hello()).toBe('hello')
+  const { a, b, withInject } = container.resolve()
+  expect(a.hello()).toBe('hello')
+  expect(b.method()).toBe('test')
+  expect(withInject.hello()).toBe('hello')
 });
