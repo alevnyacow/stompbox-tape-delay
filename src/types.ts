@@ -83,17 +83,17 @@ export class TapeDelay<Env extends string, T extends Entries<Env>, P extends Tap
     
     resolvePartial = <Keys extends EntryKeys<TapeDelay<Env, T, P>>[]>(...keys: Keys) => (): {[key in Keys[number] as Uncapitalize<key & string>]: EntryContract<TapeDelay<Env, T, P>, key & string>} => {
         let currentLevel = this
-        let currentKeys = Object.keys(currentLevel.container)
+        let currentKeys = Object.keys(currentLevel.entries)
         let parent = this.parent
         let ctx = {}
 
         while (parent) {
-            currentKeys = [...currentKeys, ...Object.keys(parent.container)]
+            currentKeys = [...currentKeys, ...Object.keys(parent.entries)]
             parent = parent.parent
         }
         
         for (const key of currentKeys) {
-            if (keys && !keys.includes(key)) {
+            if (!keys.includes(key)) {
                 continue
             }
             // @ts-ignore
