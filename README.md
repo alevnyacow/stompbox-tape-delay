@@ -113,5 +113,3 @@ type Container = typeof container
 const { b } = container.partialResolve('B')
 console.log(b.aMethod())
 ```
-
-## Partial resolving
