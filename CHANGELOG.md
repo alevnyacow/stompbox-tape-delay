@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.2.0...v2.0.0) (2026-04-27)
+
+
+### Features
+
+* lightweight, context-based API, parent containers ([b5ab219](https://github.com/alevnyacow/stompbox-tape-delay/commit/b5ab2193df57fb12fab6ebd5594bff5bdbfdecca))
+
+
+### BREAKING CHANGES
+
+* new contracts
+
 # [1.2.0](https://github.com/alevnyacow/stompbox-tape-delay/compare/v1.1.0...v1.2.0) (2026-04-21)
 
 
