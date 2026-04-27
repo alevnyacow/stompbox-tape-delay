@@ -27,6 +27,7 @@ export class TapeDelay<Env extends string, T extends Entries<Env>, P extends Tap
 
         if (!globalContainer[containerKey]) {
             globalContainer[containerKey] = new Container({
+                // @ts-ignore
                 parent: this.parent ? this.parent.container[this.parent.environmentDetector()] : undefined
             })
             container = globalContainer[containerKey] as Container
@@ -78,6 +79,7 @@ export class TapeDelay<Env extends string, T extends Entries<Env>, P extends Tap
             if (keys && !keys.includes(currentKey)) {
                 continue
             }
+            // @ts-ignore
             ctx[uncapitalize(currentKey)] = this.instance(currentKey)
         }
         return keys ? () => ctx : ctx
@@ -101,6 +103,7 @@ export class TapeDelay<Env extends string, T extends Entries<Env>, P extends Tap
             if (keys && !keys.includes(key)) {
                 continue
             }
+            // @ts-ignore
             ctx[uncapitalize(key)] = this.instance(key)
         }
         
