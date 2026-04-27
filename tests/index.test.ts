@@ -1,39 +1,36 @@
 import { expect, test } from '@rstest/core';
-import { TapeDelay, injectable, inject } from '../src/index';
+import { newContainer, injectField, Instance } from '../src/index'
 
-@injectable()
-class A { hello = () => 'hello' }
+class A { hello = () => 'hello' as const }
 
-@injectable()
 class TestB { method = () => 'test' }
 
-@injectable()
 class DevB { method = () => 'dev' }
 
-@injectable()
 class ProdB { method = () => 'prod' }
 
 class WithInject {
-  public constructor(@inject<typeof container>('A') private readonly a: A) {
+  public constructor(@injectField<Container>('A') private readonly a: Instance<Container, 'A'>) {
 
   }
 
   hello = () => this.a.hello()
 }
 
-const container = new TapeDelay({
+
+const container = newContainer({
     // one implementation for all environments
     A,
     // test, dev and prod environment implementations
-    B: [TestB, DevB, ProdB],
+    B: { test: TestB, development: DevB, production: ProdB },
     WithInject
 })
 
+type Container = typeof container
+
 test('happy path', () => {
-  const aInstance = container.instance('A')
-  expect(aInstance.hello()).toBe('hello')
-  const bInstance = container.instance('B')
-  expect(bInstance.method()).toBe('test')
-  const a = container.instance('WithInject')
-  expect(a.hello()).toBe('hello')
+  const ctx = container.getCtx()
+  expect(ctx.a.hello()).toBe('hello')
+  expect(ctx.b.method()).toBe('test')
+  expect(ctx.withInject.hello()).toBe('hello')
 });
