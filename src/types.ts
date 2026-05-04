@@ -117,9 +117,6 @@ export class TapeDelay<Env extends string, T extends Entries<Env>, P extends Tap
         }
         
         for (const key of currentKeys) {
-            // if (keys && !keys.includes(key)) {
-            //     continue
-            // }
             // @ts-ignore
             ctx[uncapitalize(key)] = this.instance(key)
         }
