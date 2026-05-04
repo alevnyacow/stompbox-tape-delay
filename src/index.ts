@@ -80,7 +80,7 @@ export function newContainer<
     T extends Entries<DefaultEnvironment>, 
     ParentEnv extends string, 
     ParentEntries extends Entries<ParentEnv>, 
-    ParentParent extends TapeDelay<any, any, any>
+    ParentParent extends TapeDelay<any, any, any> | undefined
 >(
     entries: T, 
     parentContainer: TapeDelay<ParentEnv, ParentEntries, ParentParent>
@@ -91,7 +91,7 @@ export function newContainer<
     T extends Entries<Env>,
     ParentEnv extends string, 
     ParentEntries extends Entries<ParentEnv>, 
-    ParentParent extends TapeDelay<any, any, any>
+    ParentParent extends TapeDelay<any, any, any> | undefined
 >(
     envObtainer: () => Env, 
     entries: T,
